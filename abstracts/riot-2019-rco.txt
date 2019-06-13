@@ -1,0 +1,3 @@
+"rco - The R Code Optimizer"
+
+rco is an R package which aims to automatically optimize (execution time) R code by applying different well-known strategies as constant folding and propagation, dead code and store elimination, among others. The rco package has as input and output R code, thus it returns readable R code, and hence, can be further optimized by, for example, byte-code compiler tools.

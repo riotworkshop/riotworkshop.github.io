@@ -1,0 +1,63 @@
+An automatic differentiation extension for R, and its implementation in pqR
+
+Radford M. Neal, University of Toronto, Vector Institute Affiliate
+
+
+Automatic differentiation is now a crucial technology for machine
+learning and statistics, playing a central role in packages such as
+Tensor Flow (for deep learning) and Stan (for Bayesian inference).
+Facilities for general differentiable programming are being developed
+for several languages, including Python, Julia, and Swift.  If R is to
+remain a preferred language for statistical research, a convenient and
+efficient facility for automatic differentiation is essential.
+
+I present an R language extension for automatic differentiation, which
+allows an R expression that was written without regard to computing
+derivatives to be evaluated while asking for the derivatives of its
+value with respect to one or more variables.  Both the value computed
+and the variables with respect to which derivatives are taken may be
+numeric scalars, vectors, or arrays, or lists of such.  Derivatives
+are computed exactly (apart from round-off error) by dynamically
+applying the chain rule.  Derivatives of a scalar with respect to a
+vector take the form of a gradient vector; those of a vector with
+respect to a vector form a Jacobian matrix; when values are lists,
+lists of Jacobian matrices are returned.
+
+This facility differs from numeric differentiation (as done by the R
+numericDeriv function), which is less accurate, and much slower when
+derivatives are needed with respect to many quantities, as well as
+from symbolic differentiation (as is done by the R deriv function),
+which can handle only a very limited set of expressions.  The
+extension I describe allows automatic computation of derivatives for a
+wide range of R expressions - which may, for example, call R
+functions, including S3 methods, perhaps containing 'if' and 'while'
+statements - with only a few restrictions.  Computation of second and
+higher-order derivatives is not currently supported, but support could
+be added within the present framework.
+
+This extension is implemented in the current development version of
+pqR (see pqR-project.org).  pqR keeps track of when derivatives should
+be computed using its internal "variant result" mechanism, along with
+a flag bit in environments.  Derivatives are stored in attributes of
+binding cells in environments, so they are "hidden" at the R level, as
+is essential if functions are to behave the same when derivatives are
+being computed as they do when derivatives have not been asked for.
+The slowdown due to the presence of this extension when no derivatives
+are being computed is less than 5%, even in code dominated by
+interpretive overhead.  When derivatives are computed, the slowdown in
+scalar code, primarily from extra interpretive overhead, is about a
+factor of three; I expect that this can be reduced with detailed code
+optimizations in the interpreter.
+
+This implementation framework is compatible with both "forward" and
+"reverse" modes of automatic differentiation.  For finding the
+derivatives of f1(f2(f3(x))), these two approaches correspond to
+multiplying the Jacobian matrices for f1, f2, and f3 from right to
+left or from left to right; which is faster depends on the dimensions
+of these Jacobian matrices.  The current pqR implementation uses a
+hybrid approach, choosing the faster method at run time, though for
+some operations only the forward method is currently implemented.
+
+Finally, I will discuss additional language extensions that would
+enhance the usefulness of automatic differentiation for gradient-based
+optimization and Monte Carlo simulation.
