@@ -10,6 +10,10 @@ body, h1, h2, h3, h4, p {
 h1, h2, h3, h4 {
   margin: 10px 0;
 }
+.sched-headline {background: #ccf; margin:0; padding:3px; margin-top: 0.75em;}
+.sched-title {font-weight:bolder; margin:0; margin-top:0.5em;}
+.sched-abstract {font-weight: normal; padding-left: 0.25em;}
+.sched-authors {margin:0; margin-top:0.2em; font-style:italic}
 
 </style>
 </head>
@@ -22,11 +26,59 @@ h1, h2, h3, h4 {
 				<h2>RIOT 2019 (co-located with, and during, useR! 2019)</h2>
 				<h3>July 11th 2019, Toulouse, France</h3>
         	</div>
-        <h4>News:</h4>
-            <ul>
-                <li>The abstract submission deadline was <b>extended to June 11th, 2019</b>. Abstracts should be submitted via email to <a href="mailto:stepan.sindelar@oracle.com">Stepan Sindelar</a>. Note that useR! registration is required for all RIOT speakers and attendees.</li>
-            </ul>
-        <h4>Overview:</h4>
+        <h4>Schedule:</h4>
+        
+        <ul>
+          <li><b><u>Location:</u> the congress centre “Pierre Baudis”, room: TBA</b>
+             <br/>See the useR! website for the <a href="http://www.user2019.fr/travel/" title="directions">directions</a>
+          </li>
+          
+          <li><div class="sched-headline"><b>10:20am - 10:30am  - Opening Remarks</b></div><br/></li>
+          
+          <li><div class="sched-headline" style="margin-top:0"><b>10:30am - 12:00pm  - R Tooling and Language</b></div>
+          <div>
+            <p class="sched-title">RDT: A Dynamic Tracing Framework for R<a class="sched-abstract" href="abstracts/riot-2019-dynamic-tracing.pdf" title="RDT: A Dynamic Tracing Framework for R: abstract">abstract</a></p>
+            <p class="sched-authors">Aviral Goel (Northeastern University, USA), Filip Křikava (Czech Technical University, Czech Republic), Jan Vitek (Northeastern University, USA and Czech Technical University, Czech Republic)</p>
+          </div>
+          <div>
+            <p class="sched-title">An automatic differentiation extension for R, and its implementation in pqR
+              <a class="sched-abstract" href="abstracts/riot-2019-pqr.txt" title="An automatic differentiation extension for R, and its implementation in pqR: abstract">abstract</a></p>
+            <p class="sched-authors">Radford M. Neal (University of Toronto, Vector Institute Affiliate)</p>
+          </div>
+          <div>
+            <p class="sched-title">rco &ndash; The R Code Optimizer
+              <a class="sched-abstract" href="abstracts/riot-2019-rco.txt" title="rco - The R Code Optimizer: abstract">abstract</a></p>
+            <p class="sched-authors">Juan Cruz Rodriguez</p>
+          </div>            
+          </li>
+          
+          <li><div class="sched-headline"><b>12:00pm - 13:00pm  - R Optimization and Analysis</b></div>
+          <div>
+            <p class="sched-title">GNU-R bytecode compiler</p>
+            <p class="sched-authors">Luke Tierney (University of Iowa)</p>
+          </div>
+          <div>
+            <p class="sched-title">The Design of a new Bytecode format for R</p>
+            <p class="sched-authors">Jan Vitek (Northeastern University, USA and Czech Technical University, Czech Republic)</p>
+          </div>
+            
+          <li><div class="sched-headline"><b>14:00pm - 15:00pm  - R Implementations</b></div>
+          <div>
+            <p class="sched-title">The Renjin Toolchain: Compiling R, Fortran, C, and C++ to JVM Bytecode</p>
+            <p class="sched-authors">Alexander Bertram (BeDataDriven)</p>
+          </div>
+          <div>
+            <p class="sched-title">FastR update: LLVM back-end and GNU-R compatibility
+            <a class="sched-abstract" href="abstracts/riot-2019-fastr.txt" title="FastR update: LLVM back-end and GNU-R compatibility: abstract">abstract</a></p>
+            <p class="sched-authors">Stepan Sindelar (Oracle Labs)</p>
+          </div>            
+            
+          <li><div class="sched-headline"><b>15:00pm - 15:40pm  - Panel Discussion: The Challenges of Compiling the R Language</b></div><br/></li>
+          <p style="font-style:italic; margin:0;padding:0;margin-top:-0.5em;">Luke Tierney (GNU-R), Alexander Bertram (Renjin), Stepan Sindelar (FastR), Jan Vitek (RIR)</p>
+          
+          <li><div class="sched-headline"><b>15:40pm - 15:45pm  - Closing Remarks</b></div><br/></li>
+        </ul>
+
         <p><b>R</b> is a programming language for statistical computing, with thousands of
           packages available in open-source repositories and over 2 million
           users in both academia and industry.</p>
